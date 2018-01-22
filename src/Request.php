@@ -494,11 +494,7 @@ class Request
 				{
 					curl_setopt($curl, CURLOPT_PUT, true);
 					curl_setopt($curl, CURLOPT_INFILE, $this->input->getFp());
-
-					if ($size > 0)
-					{
-						curl_setopt($curl, CURLOPT_INFILESIZE, $size);
-					}
+					curl_setopt($curl, CURLOPT_INFILESIZE, $size);					
 				}
 
 
