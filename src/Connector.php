@@ -79,7 +79,7 @@ class Connector
 			$input->setType($requestHeaders['Content-Type']);
 		}
 
-		if (($input->getSize() <= 0) || (($input->getInputType() == Input::INPUT_DATA) && (!strlen($input->getDataReference()))))
+		if (($input->getSize() < 0) || (($input->getInputType() == Input::INPUT_DATA) && (!strlen($input->getDataReference()))))
 		{
 			throw new CannotPutFile('Missing input parameters', 0);
 		}
