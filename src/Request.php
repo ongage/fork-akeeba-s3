@@ -609,7 +609,7 @@ class Request
 			default:
 				if (preg_match('/^x-amz-meta-.*$/', $header))
 				{
-					$this->setHeader($header, is_numeric($value) ? (int)$value : $value);
+					$this->response->setHeader($header, is_numeric($value) ? (int)$value : $value);
 				}
 				break;
 		}
