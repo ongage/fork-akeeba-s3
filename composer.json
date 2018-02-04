@@ -1,5 +1,5 @@
 {
-	"name": "akeeba/s3",
+	"name": "ongage/fork-akeeba-s3",
 	"type": "library",
 	"description": "Akeeba Engine connector for Amazon S3",
 	"require" : {
