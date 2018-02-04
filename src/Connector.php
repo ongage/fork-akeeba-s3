@@ -79,7 +79,7 @@ class Connector
 			$input->setType($requestHeaders['Content-Type']);
 		}
 
-		if (($input->getSize() <= 0) || (($input->getInputType() == Input::INPUT_DATA) && (!strlen($input->getDataReference()))))
+		if (($input->getSize() < 0) || (($input->getInputType() == Input::INPUT_DATA) && (!strlen($input->getDataReference()))))
 		{
 			throw new CannotPutFile('Missing input parameters', 0);
 		}
@@ -159,7 +159,7 @@ class Connector
 	 * @param   int     $from    Start of the download range, null to download the entire object
 	 * @param   int     $to      End of the download range, null to download the entire object
 	 *
-	 * @return  void|string  No return if $saveTo is specified; data as string otherwise
+	 * @return  Response
 	 *
 	 * @throws  CannotOpenFileForWrite
 	 * @throws  CannotGetFile
@@ -215,12 +215,7 @@ class Connector
 			);
 		}
 
-		if (!is_resource($fp))
-		{
-			return $response->body;
-		}
-
-		return null;
+		return $response;
 	}
 
 	/**
